@@ -1,20 +1,53 @@
-# 🧭 Nginx Reverse Proxy Setup on NixOS (for Beginners)
+## 🧭 Nginx Reverse Proxy Setup on NixOS
+Set up Nginx as a reverse proxy on NixOS to forward traffic 
 
-This guide helps you set up **Nginx as a reverse proxy** on **NixOS**, mainly for forwarding traffic from `http://localhost` to your local development server (e.g., `localhost:3000`).
+## 📁 Step 1: Create a Custom Nginx Config
+Create a custom Nginx configuration file at:
+/etc/nixos/nginx.nix
+Inside nginx.nix, define your reverse proxy setup.
 
-## 📁 Project Structure
+## ⚙️ Step 2: Import Config in configuration.nix
+Open /etc/nixos/configuration.nix and import your custom config:
 
-Create a folder to hold your custom Nginx config:
+```nix
+{
+  imports = [
+    ./nginx.nix
+  ];
 
-file locate in /etc/nixos/nginx.nix
-
-Build it.
-```sh
-nixos-rebuild switch
+  # ...other settings
+}
 ```
-Restart.
+
+## 🛠️ Step 3: Apply the Configuration
+Rebuild your NixOS system:
+
 ```sh
-systemctl reboot
+sudo nixos-rebuild switch
 ```
-Go to.
+
+## 🔁 Step 4: Reboot (Optional)
+Reboot your system (optional, but useful if other services depend on this):
+
+```sh
+sudo systemctl reboot
+```
+
+## 🌐 Step 5: Visit Your Proxy
+Go to:
+
 `http://localhost`
+
+## You will see
+
+Welcome to nginx!
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
+
+## 
+
+[NGINX](https://nginx.org/)
