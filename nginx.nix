@@ -7,10 +7,10 @@
       locations."localhost" = {};
     };
 
-    #01 Example this line locate your file in permissions Edit in root
-    virtualHosts."chat.localhost" = {
+    #01 Example this line locate your file in permissions Edit in root 
+    virtualHosts."yourURLname.localhost" = {
       locations."/" = {
-        root = "/var/www/chatapp"; 
+        root = "/var/www/yourdirectory"; 
         index = "index.html";
       };
     };
